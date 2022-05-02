@@ -6,30 +6,27 @@ import { Task } from './interfaces/todo.interface';
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent {
-  highPriorityList: Task[] = [
-    {
-      name: 'Angular',
-      description: 'Angular Description',
-      priority: 1,
-    },
-    {
-      name: 'React',
-      description: 'React Description',
-      priority: 1,
-    },
-  ];
-  mediumPriorityList: Task[] = [
-    {
-      name: 'CSS',
-      description: 'CSS Description',
-      priority: 2,
-    },
-  ];
-  lowPriorityList: Task[] = [
-    {
-      name: 'HTML',
-      description: 'HTML Description',
-      priority: 3,
-    },
-  ];
+  highPriorityList: Task[] = [];
+  mediumPriorityList: Task[] = [];
+  lowPriorityList: Task[] = [];
+
+  receiveTask(task: Task) {
+    switch (task.priority) {
+      case 1: {
+        this.highPriorityList = [...this.highPriorityList, { ...task }];
+        break;
+      }
+      case 2: {
+        this.mediumPriorityList = [...this.mediumPriorityList, { ...task }];
+        break;
+      }
+      case 3: {
+        this.lowPriorityList = [...this.lowPriorityList, { ...task }];
+        break;
+      }
+      default: {
+        console.log('Invalid case...');
+      }
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../interfaces/todo.interface';
 
 @Component({
@@ -7,6 +7,8 @@ import { Task } from '../../interfaces/todo.interface';
   styleUrls: ['./todo-form.component.css'],
 })
 export class TodoFormComponent {
+  // to create custom event
+  @Output() taskEvent: EventEmitter<Task> = new EventEmitter<Task>();
   task: Task = {
     name: '',
     description: '',
@@ -14,6 +16,7 @@ export class TodoFormComponent {
   };
 
   addTask() {
-    console.log('task ==>', this.task);
+    // to raise custom event
+    this.taskEvent.emit(this.task);
   }
 }
