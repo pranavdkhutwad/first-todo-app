@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col1">
+      <app-todo-form></app-todo-form>
+    </div>
+    <div class="col2">
+      <app-todo-list
+        [highPriorities]="highPriorityList"
+        [mediumPriorities]="mediumPriorityList"
+        [lowPriorities]="lowPriorityList"
+      ></app-todo-list>
+    </div>
+  </div>
+</div>

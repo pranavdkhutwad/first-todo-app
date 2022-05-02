@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input,
+textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 2px solid #132a92;
+}
+
+input {
+  padding: 10px;
+}
+
+textarea {
+  padding: 25px;
+}
+
+.btn {
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #0f4b9a;
+  color: #fff;
+}
+.btn-danger {
+  background-color: #670f0f;
+  color: #fff;
+}
+.btn-success {
+  background-color: #207b20;
+  color: #fff;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 25px;
+  border-radius: 5px;
+}
