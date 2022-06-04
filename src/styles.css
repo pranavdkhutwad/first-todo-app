@@ -4,10 +4,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.oi {
+  cursor: pointer;
+}
+/* .form-control {
+  margin-bottom: 15px;
+}
+
 input,
 textarea {
   width: 100%;
-  margin-bottom: 15px;
   border: 1px solid #ccc;
 }
 
@@ -49,4 +56,4 @@ textarea {
   border: 1px solid #ccc;
   padding: 25px;
   border-radius: 5px;
-}
+} */

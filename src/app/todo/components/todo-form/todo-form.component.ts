@@ -1,5 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { Task } from '../../interfaces/todo.interface';
+import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
 
 @Component({
@@ -10,21 +9,16 @@ import { TodoService } from '../../services/todo.service';
 export class TodoFormComponent {
   // to create custom event
   @Output() taskEvent: EventEmitter<any> = new EventEmitter<any>();
-  task: Task = {
-    name: '',
-    description: '',
-    priority: null,
-  };
+  @ViewChild('f') form?: any;
 
   constructor(private todoService: TodoService) {}
 
   addTask() {
-    // to raise custom event
-    // this.taskEvent.emit(this.task);
-    this.todoService.addTask(this.task).subscribe(() => {
+    this.todoService.addTask(this.form.value).subscribe(() => {
       this.todoService.getTask().subscribe((data) => {
         const list = this.todoService.convertObjToArray(data);
         this.taskEvent.emit(list);
+        this.form.resetForm();
       });
     });
   }

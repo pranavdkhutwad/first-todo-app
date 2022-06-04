@@ -1,26 +1,36 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { TodoComponent } from './todo/todo.component';
-import { TodoFormComponent } from './todo/components/todo-form/todo-form.component';
-import { TodoListComponent } from './todo/components/todo-list/todo-list.component';
-import { TodoItemComponent } from './todo/components/todo-item/todo-item.component';
+import { TodoModule } from './todo/todo.module';
 
-import { TodoService } from './todo/services/todo.service';
+import { FileSizePipe } from './pipes/file-size.pipe';
+import { ListFilterPipe } from './pipes/list-filter.pipe';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
+    // Components
     AppComponent,
-    TodoComponent,
-    TodoFormComponent,
-    TodoListComponent,
-    TodoItemComponent,
+
+    // Directives
+
+    // Pipes
+    FileSizePipe,
+    ListFilterPipe,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule],
-  providers: [TodoService],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    NgbModule,
+    ReactiveFormsModule,
+    TodoModule,
+  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
